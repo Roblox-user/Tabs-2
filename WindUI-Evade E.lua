@@ -1,21 +1,7 @@
-local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
-Rayfield:Notify({
-   Title = "Maple Evade",
-   Content = "Hello World welcome to Evade"
-   Duration = 10,
-   Image = 4483362458,
-})
 local WindUI = loadstring(game:HttpGet("https://tree-hub.vercel.app/api/UI/WindUI"))()
---local WindUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/Roblox-user/Raw.DL-HUB.Main/refs/heads/main/Wind-UI.Lua"))()
 local notifs =loadstring(game:HttpGet("https://raw.githubusercontent.com/Jxereas/UI-Libraries/main/notification_gui_library.lua", true))()
 local changelog = game:HttpGet("https://raw.githubusercontent.com/CF-Trail/random/main/.x.vr.e.hi/misc/clogevade.lua")
 local esp =loadstring(game:HttpGet("https://raw.githubusercontent.com/Babyhamsta/RBLX_Scripts/main/Universal/SimpleHighlightESP.lua"))()
-Rayfield:Notify({
-   Title = "loading…0/9",
-   Content = "pls wait 10s",
-   Duration = 4,
-   Image = 4483362458,
-})
 
 repeat
         task.wait()
@@ -237,12 +223,6 @@ game.Players.LocalPlayer.CharacterAdded:Connect(function(char)
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/CF-Trail/random/main/bypassedfly.lua"))()
         end
 end)
-Rayfield:Notify({
-   Title = "loading…1/9",
-   Content = "load library!",
-   Duration = 2,
-   Image = 4483362458,
-})
 local Window = WindUI:CreateWindow({
     Title = "maple | Evade",
     Icon = "cloud",
@@ -352,12 +332,7 @@ getgenv().Settings = {
         }
     }
 }
-Rayfield:Notify({
-   Title = "loading…2/9",
-   Content = "Windows load!",
-   Duration = 2,
-   Image = 4483362458,
-})
+
 local homeTab = Window:Tab({
     Title = "home",
     Icon = "house",
@@ -403,12 +378,7 @@ local Button = playerTab:Toggle({
                 f()
     end,
 })
-Rayfield:Notify({
-   Title = "loading…3/9",
-   Content = "load home!",
-   Duration = 2,
-   Image = 4483362458,
-})
+
 local MainTab = Window:Tab({
     Title = "Main",
     Icon = "snowflake",
@@ -573,12 +543,7 @@ MainTab:Button({
     game:GetService("ReplicatedStorage").Events.Respawn:FireServer()
     end
 })
-Rayfield:Notify({
-   Title = "loading…4/9",
-   Content = "load Main!",
-   Duration = 2,
-   Image = 4483362458,
-})
+
 local espTab = Window:Tab({
     Title = "esp",
     Icon = "rbxassetid://4483345998",
@@ -632,12 +597,7 @@ local espTab = Window:Tab({
             )
     end,
 })
-Rayfield:Notify({
-   Title = "loading…5/9",
-   Content = "load esp!",
-   Duration = 2,
-   Image = 4483362458,
-})
+
  local TPTab = Window:Tab({
     Title = "stever",
     Icon = "rbxassetid://7734053426",
@@ -724,12 +684,7 @@ TPTab:Button({
         TeleportService:Teleport(GameId, game.Players.LocalPlayer)
     end
 })
-Rayfield:Notify({
-   Title = "Loading…7/9",
-   Content = "load Stever!",
-   Duration = 2,
-   Image = 4483362458,
-})
+
 local MPTab = Window:Tab({
     Title = "complex",
     Icon = "box",
@@ -767,12 +722,7 @@ local Button = MPTab:Toggle({
                 end
     end,
 })
-Rayfield:Notify({
-   Title = "loading…8/9",
-   Content = "load complex!",
-   Duration = 2,
-   Image = 4483362458,
-})
+
 local WindowTab = Window:Tab({
     Title = "settings",
     Icon = "settings",
@@ -862,7 +812,7 @@ WindowTab:Input({
         fileNameInput = text
                 WindUI:Notify({
             Title = "lnput's text",
-            Content = "已创建文件: "..text,
+            Content = "ok! Name: "..text,
             Duration = 5,
         })
     end
@@ -933,12 +883,7 @@ WindowTab:Button({
         filesDropdown:Refresh(ListFiles())
     end
 })
-Rayfield:Notify({
-   Title = "Loading…9/9!",
-   Content = "setting load!",
-   Duration = 2,
-   Image = 4483362458,
-})
+
 game:GetService("Players").PlayerAdded:Connect(function(Player)
     Player.CharacterAdded:Connect(function(Char)
         if Highlights_Active then
@@ -1167,10 +1112,3 @@ local GC = getconnections or get_signal_cons
                         VirtualUser:ClickButton2(Vector2.new())
                 end)
         end
-
-Rayfield:Notify({
-   Title = "load✅",
-   Content = "welcome",
-   Duration = 6.5,
-   Image = 4483362458,
-})
