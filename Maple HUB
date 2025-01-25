@@ -39,17 +39,17 @@ local Window = Rayfield:CreateWindow({
 local Tab = Window:CreateTab("Evade", 4483362458)
 
 local Button = Tab:CreateButton({
-   Name = "My Script CN 简体中文👌",
-   Callback = function()
-   loadstring(game:HttpGet("https://raw.githubusercontent.com/Roblox-user/Tabs-2/refs/heads/main/Wind%20UI-Evade.lua"))()
-   end,
-})
-
-local Button = Tab:CreateButton({
-   Name = "My script English👍",
+   Name = "My script 👍",
    Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Roblox-user/Tabs-2/refs/heads/main/WindUI-Evade%20E.lua"))()
    end,
 })
 
+local Tab = Window:CreateTab("Night Lights", 4483362458)
 
+local Button = Tab:CreateButton({
+   Name = "My script 👍",
+   Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Roblox-user/Tabs-2/refs/heads/main/Night%20Lights"))()
+   end,
+})
