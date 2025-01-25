@@ -1,78 +1,39 @@
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
-Rayfield:Notify({
-   Title = "我们信息",
-   Content = "⚠️当前冻梨-Evade正在测试,未录入正式版!⚠️ \n💍Auxiliary:Xiao Yun-CN.💍 \n👑 Codeby:OAO_CNikunawa.👑 \n🍞Apprentice:B&Z-X.🍞 \n📶加入我们:yileinayyds114514 (微信号)📶"
-   Duration = 10,
-   Image = 4483362458,
-})
-
 local Window = Rayfield:CreateWindow({
-   Name = "Maple-Rayfield.Lib",
-   Icon = 0,
-   LoadingTitle = "Maple🍁Hub Loading…",
-   LoadingSubtitle = "By: OAO_CNikunawa-CN",
-   Theme = "Green", 
---[[
-ThemeIdentifier:
-Default
-AmberGlow
-Amethyst
-Bloom
-DarkBlue
-Green
-Light
-Ocean
-Serenity
-]]
-   DisableRayfieldPrompts = false,
-   DisableBuildWarnings = false,
-
-   ConfigurationSaving = {
-      Enabled = true,
-      FolderName = nil, 
-      FileName = "Maple Hub"
-   },
-   Discord = {
-      Enabled = false,
-      Invite = "noinvitelink",
-      RememberJoins = true
-   },
-   KeySystem = false, -- Set this to true to use our key system
-   KeySettings = {
-      Title = "Untitled",
-      Subtitle = "Key System",
-      Note = "No method of obtaining the key is provided",
-      FileName = "Key", 
-      SaveKey = true, 
-      GrabKeyFromSite = false, 
-      Key = {"Hello"} 
-   }
+    Name = "枫 脚本 | 😎",
+    Icon = 0,
+    LoadingTitle = "加载…",
+    LoadingSubtitle = "制作: Q3E4[私]",
+    Theme = "Light",
+    DisableRayfieldPrompts = false,
+    DisableBuildWarnings = false,
+    ConfigurationSaving = {
+        Enabled = false,
+        FolderName = nil,
+        FileName = "Hub"
+    },
+    Discord = {
+        Enabled = false,
+        Invite = "noinvitelink",
+        RememberJoins = false
+    },
+    KeySystem = false,
+    KeySettings = {
+        Title = "Untitled",
+        Subtitle = "Key System",
+        Note = "No method of obtaining the key is provided",
+        FileName = "Key",
+        SaveKey = true,
+        GrabKeyFromSite = false,
+        Key = {"Hello"}
+    }
 })
 
-local homeTab = Window:CreateTab("Home", 4483362458) 
-
-local Dropdown = homeTab:CreateDropdown({
-   Name = "Looks My information",
-   Options = {"I'm from China","I love the script!"},
-   CurrentOption = {"I'm from China"},
-   MultipleOptions = false,
-   Flag = "Dropdown1", 
-   Callback = function(Options)
-
-   end,
-})
-
-local Button = homeTab:CreateButton({
-   Name = "Destroy GUI",
-   Callback = function()
-   Rayfield:Destroy()
-   end,
-})
-
-local EvadeTab = Window:CreateTab("Evade", 4483362458) 
+local Tab = Window:CreateTab("Evade", 4483362458)
+local MiscTab = Window:CreateTab("其他", 4483362458)
 
 local Button = Tab:CreateButton({
-   Name = "My Script 简体中文👌",
+   Name = "My Script CN 简体中文👌",
    Callback = function()
    loadstring(game:HttpGet("https://raw.githubusercontent.com/Roblox-user/Tabs-2/refs/heads/main/Wind%20UI-Evade.lua"))()
    end,
@@ -85,5 +46,4 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/Roblox-user/Tabs-2/re
    end,
 })
 
-local DitTab = Window:CreateTab("Dig it", 4483362458) 
 
