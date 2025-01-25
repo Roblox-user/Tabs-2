@@ -1,0 +1,174 @@
+--𝓑𝔂:𝓞𝓐𝓞_𝓒𝓝𝓲𝓴𝓾𝓷𝓪𝔀𝓪-𝓒𝓝
+function CollectNotes()
+for i, v in workspace.Notes:GetChildren() do
+ if v:FindFirstChild("ProximityPrompt") then
+  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+  task.wait(.25)
+  fireproximityprompt(v.ProximityPrompt)
+ end
+end
+end
+function CollectCoins()
+for i, v in workspace.House.Coins:GetChildren() do
+ game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Coin.CFrame
+ task.wait(.25)
+ fireproximityprompt(v.Main:FindFirstChild("ProximityPrompt"))
+end
+end
+function Exit()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.House.ExitPart.CFrame
+task.wait(.25)
+fireproximityprompt(workspace.House.ExitPart.ProximityPrompt)
+end
+
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+local Window = Rayfield:CreateWindow({
+    Name = "Maple Hub | Night Light",
+    Icon = 0,
+    LoadingTitle = "Loading…",
+    LoadingSubtitle = "By: OAO_CNikunawa",
+    Theme = "Light",
+    DisableRayfieldPrompts = false,
+    DisableBuildWarnings = false,
+    ConfigurationSaving = {
+        Enabled = false,
+        FolderName = nil,
+        FileName = "Hub"
+    },
+    Discord = {
+        Enabled = false,
+        Invite = "noinvitelink",
+        RememberJoins = false
+    },
+    KeySystem = false,
+    KeySettings = {
+        Title = "Untitled",
+        Subtitle = "Key System",
+        Note = "No method of obtaining the key is provided",
+        FileName = "Key",
+        SaveKey = true,
+        GrabKeyFromSite = false,
+        Key = {"Hello"}
+    }
+})
+local lp = game:GetService("Players").LocalPlayer
+local char = lp.Character
+local Root = char.HumanoidRootPart
+local Camera = workspace.CurrentCamera
+
+lp.CharacterAdded:Connect(function(c)
+ char = c
+ task.spawn(function()
+  Root = c:WaitForChild("HumanoidRootPart")
+ end)
+end)
+
+function encode(thing) return game:GetService("HttpService"):JSONEncode(thing) end
+function decode(thing) return game:GetService("HttpService"):JSONDecode(thing) end
+
+if isfile("XIHub/Settings.json") then
+ settings = game:GetService("HttpService"):JSONDecode(readfile("XIHub/Settings.json"))
+else
+ settings = {
+  Animation1 = true,
+  CollectCoins = false,
+  FB = false
+}
+makefolder("XIHub")
+writefile("XIHub/Settings.json", game:GetService("HttpService"):JSONEncode(settings))
+end
+if settings.Animation1 then
+library:Introduction()
+end
+local range = settings.Range
+local MainTab = Window:CreateTab("Main", 4483362458)
+
+local Toggle = MainTab:CreateToggle({
+    Name = "Auto Collect coins (low)",
+    CurrentValue = false,
+    Flag = "Auto",
+    Callback = function(value)
+    local vers = value and "on" or "off"
+    CC = value
+    settings.CollectCoins = value
+    end,
+})
+local cameraToggle = MainTab:CreateToggle({
+    Name = "Auto Collect coins(fast)",
+    CurrentValue = false,
+    Flag = "Auto",
+    Callback = function(value)
+    if value then
+local CurrentCF = Root.CFrame
+CollectCoins()
+task.wait(.24)
+Root.CFrame = CurrentCF
+    end,
+})
+local cameraToggle = MainTab:CreateToggle({
+    Name = "Auto Collect notes",
+    CurrentValue = false,
+    Flag = "Auto",
+    Callback = function(value)
+    if value then
+local CurrentCF = Root.CFrame
+CollectNotes()
+task.wait(.24)
+Root.CFrame = CurrentCF
+    end,
+})
+local cameraToggle = MainTab:CreateToggle({
+    Name = "Auto Collect Models",
+    CurrentValue = false,
+    Flag = "Auto",
+    Callback = function(value)
+    if value then
+local CurrentCF = Root.CFrame
+for i, v in workspace.Matches:GetChildren() do
+ if v:IsA("Model") then
+ Root.CFrame = v.Main.CFrame
+ task.wait(.24)
+ fireproximityprompt(v.Main.ProximityPrompt)
+ end
+end
+task.wait(.24)
+Root.CFrame = CurrentCF
+    end,
+})
+local cameraToggle = MainTab:CreateToggle({
+    Name = "Win",
+    CurrentValue = false,
+    Flag = "Auto",
+    Callback = function(value)
+    if value then
+  for i = 1, 3, 1 do
+   CollectNotes()
+   if CC then
+    CollectCoins()
+   end
+   Exit()
+   task.wait(.75)
+ end
+end)
+
+game:GetService("CoreGui"):WaitForChild("screen").edge.Draggable = true
+game:GetService("CoreGui"):WaitForChild("screen").edge.Active = true
+game:GetService("Players").PlayerRemoving:Connect(function(p)
+if p == lp then
+ writefile("XI Hub/Settings.json", encode(settings))
+end
+    end,
+})
+local Toggle = MainTab:CreateToggle({
+    Name = "all bright",
+    CurrentValue = false,
+    Flag = "Auto",
+    Callback = function(Value)
+settings.FB = value
+ if value then
+  game:GetService("Lighting").Ambient = Color3.fromRGB(255,255,255)
+ else
+  game:GetService("Lighting").Ambient = Color3.fromRGB(0,0,0)
+ end
+    end,
+})
