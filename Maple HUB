@@ -1,9 +1,16 @@
+local Notification = loadstring(game:HttpGet("https://api.irisapp.ca/Scripts/IrisBetterNotifications.lua"))()
+Notification.Notify("️Maple Hub[Beta]", "⚠️当前冻梨-Evade正在测试,未录入正式版!⚠️ \n💍Auxiliary:Xiao Yun-CN.💍 \n👑 Codeby:OAO_CNikunawa.👑 \n🍞Apprentice:B&Z-X.🍞 \n📶加入我们:yileinayyds114514 (微信号)📶", "rbxassetid://10483855823", {
+    Duration = 5,       
+    Main = {
+        Rounding = true,
+    }
+});
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 local Window = Rayfield:CreateWindow({
-    Name = "枫 脚本 | 😎",
+    Name = "Maple Hub",
     Icon = 0,
-    LoadingTitle = "加载…",
-    LoadingSubtitle = "制作: Q3E4[私]",
+    LoadingTitle = "Loading…",
+    LoadingSubtitle = "By: OAO_CNikunawa",
     Theme = "Light",
     DisableRayfieldPrompts = false,
     DisableBuildWarnings = false,
@@ -30,7 +37,6 @@ local Window = Rayfield:CreateWindow({
 })
 
 local Tab = Window:CreateTab("Evade", 4483362458)
-local MiscTab = Window:CreateTab("其他", 4483362458)
 
 local Button = Tab:CreateButton({
    Name = "My Script CN 简体中文👌",
